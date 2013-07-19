@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dicts>
+	
+	<category id="Exception.Message" desc="errInfo resources files">
+		<entry key="Error.message.tutorial.list.nullShop"  value="not exist"/>
+		
+		<!-- begin upload -->
+	</category>
+	
+</dicts>

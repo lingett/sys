@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dicts>
+	
+	<category id="Settings" desc="setting info">
+		<entry key="StaticServers" value="${filter.static.servers}"
+			desc="statis server info"/>
+		<entry key="RootUrl" value="${filter.rootUrl}" desc="root url"/>
+		<entry key="Environment" value="${env}"/>
+	</category>
+	
+</dicts>
