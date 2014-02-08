@@ -9,13 +9,12 @@ public class UserDaoImpl extends SqlMapClientDaoSupport implements UserDao {
 
 	@Override
 	public User findById(int userID) {
-		return (User) getSqlMapClientTemplate().queryForObject("User.findById",
-				userID);
+		return (User) getSqlMapClientTemplate().queryForObject("User.findById", userID);
 	}
 
 	@Override
-	public int insert(User user) {
-		return (Integer) getSqlMapClientTemplate().insert("User.insert", user);
+	public void insert(User user) {
+		getSqlMapClientTemplate().insert("User.insert", user);
 	}
 
 	@Override

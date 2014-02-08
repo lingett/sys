@@ -8,9 +8,9 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 
-	<!--  <bean id="UserDao" class="com.dianping.sys.dao.impl.UserDaoImpl">
+	<bean id="UserDao" class="com.dianping.sys.dao.impl.UserDaoImpl">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="sqlMapClient" ref="sqlMapClient"></property>
-	</bean> -->
+	</bean>
 	
 </beans>

@@ -5,7 +5,7 @@ import com.dianping.sys.entity.User;
 public interface UserDao {
 	public User findById(int userID);
 
-	public int insert(User user);
+	public void insert(User user);
 
 	public void update(User user);
 	

@@ -3,15 +3,13 @@
 <sqlMap namespace="User">
 
 	<resultMap id="result" class="com.dianping.sys.entity.User">
-		<result property="userID" column="USER_ID" columnIndex="1" />
-		<result property="userName" column="USER_NAME" columnIndex="2" />
-		<result property="id" column="ID" columnIndex="3" />
-		<result property="creatorID" column="CREATOR_ID" columnIndex="4" />
-		<result property="lastCreatorID" column="LAST_UPDATOR_ID"
-			columnIndex="5" />
-		<result property="createTime" column="CREATE_TIME" columnIndex="6" />
-		<result property="lastUpdateTime" column="LAST_UPDATE_TIME"
-			columnIndex="7" />
+		<result property="userID" column="USER_ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="id" column="ID" />
+		<result property="creatorID" column="CREATOR_ID" />
+		<result property="lastUpdatorID" column="LAST_UPDATOR_ID" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="lastUpdateTime" column="LAST_UPDATE_TIME" />
 	</resultMap>
 
 	<sql id="sql_select">
@@ -20,7 +18,7 @@
 		FROM DP_USER
 	</sql>
 
-	<insert id="insert" parameterClass="map">
+	<insert id="insert" parameterClass="com.dianping.sys.entity.User">
 		<![CDATA[
 			INSERT INTO DP_USER
 			(USER_ID,
@@ -30,16 +28,13 @@
 			CREATE_TIME,
 			LAST_UPDATE_TIME)
 			VALUES
-			(#entity.userID#,
-			#entity.userName#,
-			#entity.creatorID#,
-			#entity.lastCreatorID#,
-			#entity.createTime#,
-			#entity.lastUpdateTime#)
+			(#userID#,
+			#userName#,
+			#creatorID#,
+			#lastUpdatorID#,
+			#createTime#,
+			#lastUpdateTime#)
 		]]>
-		<selectKey resultClass="java.lang.Ingeger" keyProperty="id">
-			SELECT @@IDENTITY AS id
-		</selectKey>
 	</insert>
 
 	<select id="findById" resultMap="result" parameterClass="map">
@@ -58,7 +53,7 @@
 		SET
 		USER_NAME=#entity.userName# ,
 		CREATOR_ID=#entity.creatorID# ,
-		LAST_UPDATOR_ID=#entity.lastCreatorID# ,
+		LAST_UPDATOR_ID=#entity.lastUpdatorID# ,
 		CREATE_TIME=#entity.createTime# ,
 		LAST_UPDATE_TIME=#entity.lastUpdateTime#
 		WHERE
