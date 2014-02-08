@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+
+	<resultMap id="result" class="com.dianping.sys.entity.User">
+		<result property="userID" column="USER_ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="id" column="ID" />
+		<result property="creatorID" column="CREATOR_ID" />
+		<result property="lastUpdatorID" column="LAST_UPDATOR_ID" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="lastUpdateTime" column="LAST_UPDATE_TIME" />
+	</resultMap>
+
+	<sql id="sql_select">
+		SELECT
+		USER_ID,USER_NAME,ID,CREATOR_ID,LAST_CREATOR_ID,CREATE_TIME,LAST_UPDATE_TIME
+		FROM DP_USER
+	</sql>
+
+	<insert id="insert" parameterClass="com.dianping.sys.entity.User">
+		<![CDATA[
+			INSERT INTO DP_USER
+			(USER_ID,
+			USER_NAME,
+			CREATOR_ID,
+			LAST_UPDATOR_ID,
+			CREATE_TIME,
+			LAST_UPDATE_TIME)
+			VALUES
+			(#userID#,
+			#userName#,
+			#creatorID#,
+			#lastUpdatorID#,
+			#createTime#,
+			#lastUpdateTime#)
+		]]>
+	</insert>
+
+	<select id="findById" resultMap="result" parameterClass="map">
+		<include refid="sql_select" />
+		WHERE USER_ID=#userID#
+	</select>
+
+	<delete id="remove" parameterClass="map">
+		DELETE FROM DP_USER
+		WHERE
+		USER_ID=#entity.id#
+	</delete>
+
+	<update id="update" parameterClass="map">
+		UPDATE DP_USER
+		SET
+		USER_NAME=#entity.userName# ,
+		CREATOR_ID=#entity.creatorID# ,
+		LAST_UPDATOR_ID=#entity.lastUpdatorID# ,
+		CREATE_TIME=#entity.createTime# ,
+		LAST_UPDATE_TIME=#entity.lastUpdateTime#
+		WHERE
+		USER_ID=#entity.userID#
+	</update>
+</sqlMap>
