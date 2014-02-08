@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dicts>
+	<!-- 第三优先级 -->
+	<import file="classpath:/config/dict/combiz-dict.xml"/>
+
+	<!-- page -->
+	<category id="PAGE" desc="分页">
+		<entry key="PAGE_MAX" value="10" desc="每页显示行数" />
+	</category>
+	
+</dicts>
